@@ -2,7 +2,8 @@ Lightningtalks::Application.routes.draw do
   get "home/index"
   root :to => 'home#index'
 
-
+  match "oauth/new" => 'oauth#new', :as => :login
+  match 'oauth/:action', :controller => 'oauth' 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
