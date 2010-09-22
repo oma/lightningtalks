@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100922180539) do
+ActiveRecord::Schema.define(:version => 20100922181857) do
+
+  create_table "comments", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "talk_id"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "talks", :force => true do |t|
     t.string   "title"
@@ -21,9 +29,9 @@ ActiveRecord::Schema.define(:version => 20100922180539) do
   end
 
   create_table "users", :force => true do |t|
-    t.integer   "twitter_id"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
+    t.integer  "twitter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

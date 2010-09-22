@@ -18,3 +18,17 @@
 
 <%= link_to 'Edit', edit_talk_path(@talk) %> |
 <%= link_to 'Back', talks_path %>
+
+<h2>Comments!</h2>
+
+<% @talk.comments.each do |comment| %>
+  <h3><%= comment.user.twitter_id %> says</h3>
+  <p>
+    <%= comment.content %>
+  </p>
+<% end %>
+
+<%= form_for [@talk, Comment.new] do |f| %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>

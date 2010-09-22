@@ -1,5 +1,7 @@
 Lightningtalks::Application.routes.draw do
-  resources :talks
+  resources :talks do
+    resources :comments
+  end
 
   get "home/index"
   root :to => 'home#index'
